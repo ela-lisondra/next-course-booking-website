@@ -25,19 +25,33 @@ export default function NavBar(){
                     <Link href="/courses">
                         <a className="nav-link" role="button">Courses</a>
                     </Link>
-                    <Link href="/courses/create">
-                        <a className="nav-link" role="button">Create</a>
-                    </Link>
+                   
                     {   
                         user.email
                         ? 
-                        <Link href="/login">
-                        <a className="nav-link" role="button">Login</a>
-                        </Link>
-                        :                    
-                        <Link href="/login">
-                            <a className="nav-link" role="button">Login</a>
-                        </Link>
+                            user.isAdmin
+                            ?
+                                <>
+                                    <Link href="/courses/create">
+                                        <a className="nav-link" role="button">Create</a>
+                                    </Link>
+                                    <Link href="/logout">
+                                    <a className="nav-link" role="button">Logout</a>
+                                    </Link>
+                                </>
+                            :
+                                <Link href="/logout">
+                                <a className="nav-link" role="button">Logout</a>
+                                </Link>
+                        :   
+                        <>  
+                            <Link href="/register">
+                            <a className="nav-link" role="button">Register</a>
+                            </Link>                                       
+                            <Link href="/login">
+                                <a className="nav-link" role="button">Login</a>
+                            </Link>
+                        </>
                     }       
                 </Nav>
             </Navbar.Collapse>
