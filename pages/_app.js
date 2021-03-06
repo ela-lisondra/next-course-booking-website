@@ -3,7 +3,7 @@ import '../styles/globals.css'
 import {useState, useEffect} from 'react'
 import {Container} from 'react-bootstrap'
 
-import NavBar from '../components/Navbar'
+import NavBar from '../components/NavBar'
 
 import {UserProvider} from '../userContext'
 
