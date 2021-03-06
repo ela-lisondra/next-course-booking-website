@@ -26,7 +26,7 @@ export default function Login(){
     function authenticate(e){
         e.preventDefault()
 
-        fetch('http://localhost:8000/api/users/login',{
+        fetch('https://murmuring-meadow-95026.herokuapp.com/api/users/login',{
 
             method: "POST",
             headers: {
@@ -45,7 +45,7 @@ export default function Login(){
             // console.log(data)
             if(data.accessToken){
                 localStorage.setItem("token", data.accessToken)
-                fetch('http://localhost:8000/api/users/details', {
+                fetch('https://murmuring-meadow-95026.herokuapp.com/api/users/details', {
 
                     headers: {
                         Authorization: `Bearer ${data.accessToken}`
@@ -90,7 +90,7 @@ export default function Login(){
 
     function authenticateGoogleToken(response){
         console.log(response)
-        fetch('http://localhost:8000/api/users/verify-google-id-token',{
+        fetch('https://murmuring-meadow-95026.herokuapp.com/api/users/verify-google-id-token',{
             method: 'POST',
             headers: {
                 'Content-Type':'application/json'               
@@ -162,14 +162,16 @@ export default function Login(){
 				:
 				<Button variant="primary" disabled className="btn-block">Submit</Button>
 			}
-            <GoogleLogin 
+                    
+            
+        </Form>
+    )
+}
+
+/* <GoogleLogin
                 clientId="417135322331-a6tv9eq9sf6cp410cts4jva4bvcvfc4s.apps.googleusercontent.com"
                 buttonText="Login Using Google"
                 onSuccess={authenticateGoogleToken}
                 onFailure={authenticateGoogleToken}
                 cookiePolicy={'single_host_origin'}
-                className="w-100 my-40 text-center d-flex justify-content-center"            
-            />
-        </Form>
-    )
-}
+                className="w-100 my-40 text-center d-flex justify-content-center" />  */

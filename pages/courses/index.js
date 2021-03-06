@@ -14,7 +14,7 @@ export default function Courses(){
     //get all active
     useEffect(()=> {
 
-        fetch('http://localhost:8000/api/courses/')
+        fetch('https://murmuring-meadow-95026.herokuapp.com/api/courses/')
         .then(res => res.json())
         .then(data => {
 
@@ -27,7 +27,7 @@ export default function Courses(){
     console.log(allCourses)
 
     useEffect(()=> {
-        fetch('http://localhost:8000/api/courses/all')
+        fetch('https://murmuring-meadow-95026.herokuapp.com/api/courses/all')
         .then(res => res.json())
         .then(data=>{
             console.log(data)
