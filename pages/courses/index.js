@@ -19,6 +19,12 @@ export default function Courses(){
         .then(data => {
 
             setAllCourses(data)
+            let tempActive = data.filter(course => {
+                if(course.isActive === true) {
+                    return true
+                }
+            })
+        setCourses(tempActive)    
         })
 
     },[])
@@ -26,13 +32,13 @@ export default function Courses(){
     console.log(courses)
     console.log(allCourses)
 
-    useEffect(()=> {
-        fetch('https://murmuring-meadow-95026.herokuapp.com/api/courses/all')
-        .then(res => res.json())
-        .then(data=>{
-            console.log(data)
-        },[])
-    })
+    // useEffect(()=> {
+    //     fetch('https://murmuring-meadow-95026.herokuapp.com/api/courses/all')
+    //     .then(res => res.json())
+    //     .then(data=>{
+    //         console.log(data)
+    //     },[])
+    // })
 
     const coursesCards = courses.map(course => {
 
